@@ -30,8 +30,8 @@ export class MainComponent implements OnInit {
                         html.clientHeight, html.scrollHeight, html.offsetHeight );
       
       // Scroll sayfa dibinde olduğunda API fonksiyonunu çağırıyoruz.
-      if(scrollTop + 1 > body_heigth - screen_height && this.counter * 30 <= this.total_api_data_length){ 
-          this.payload.skip = this.counter *10;
+      if(scrollTop + 1 > body_heigth - screen_height && this.counter * this.payload.limit <= this.total_api_data_length){ 
+          this.payload.skip = this.counter *this.payload.limit;
           //Inputtan girilen veri olup olmamasına göre ilgili dataları ileterek API sorgusunu yapıyoruz.
           if(this.searchText === undefined){
             this.apiDataHandling(this.payload)
@@ -50,7 +50,7 @@ export class MainComponent implements OnInit {
       this.lng = pos.lng;  
       this.payload = {
         skip : 0,
-        limit : 10,
+        limit : 30,
         latitude : pos.lat,
         longitude : pos.lng,
       }
@@ -60,7 +60,7 @@ export class MainComponent implements OnInit {
       this.lng = 0;  
       this.payload = {
         skip : 0,
-        limit : 10,
+        limit : 30,
         latitude : 0,
         longitude : 0,
       }
@@ -80,7 +80,8 @@ export class MainComponent implements OnInit {
 
   // Arama Inputundan bir veri girildiğinde sayfa verilerini resetleyerek gelen veri ile yeni API sorgusu yapıyoruz.
   searcherMethod(data:string){ 
-    this.searchText = data
+    this.counter = 0 ;
+    this.searchText = data;
     this.payload.skip = 0;
     this.restaurants=[];
     this.apiDataHandling(this.payload, this.searchText)
