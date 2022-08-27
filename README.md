@@ -1,6 +1,6 @@
 # FrontendTaskAngular
 
-Task üzerinde kullanılan teknolojiler
+Task üzerinde kullanılan teknolojiler:
 
 Typescript
 
