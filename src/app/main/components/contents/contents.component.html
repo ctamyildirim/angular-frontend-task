@@ -1,0 +1,44 @@
+<!--Restoran Kartlarımızın bulunduğu content alanı.-->
+<div class="contents_wrapper">
+    <div class="contents_head_title">
+        <p class="m-0">Sonuçlar</p>
+    </div>
+    <div class="contents row m-0">
+        <div class="div col-12 col-md-6 col-xl-3 p-md-4 p-0" *ngFor="let restaurant of restaurants; let i = index">
+            <div class="content_card row p-0">
+                <div class="image_inclusive col-12 p-0">
+                    <img class='content_car_header_img' *ngIf="restaurant.images.length !== 0" src={{restaurant.images[0].base64}} alt="Resim Dosyası Bulunamamıştır"/>
+                    <img class='content_car_header_img' *ngIf="restaurant.images.length === 0" src='' alt="Resim Dosyası Bulunamamıştır"/>
+                    <div class="rate_zone font-12">
+                        <div>
+                            <span class="star_wrapper mr-1"><img src="../../../../../assets/Images/Main/content/Group 1219@3x.png" alt=""/></span>
+                            <span class="rate_wrapper">{{restaurant.storeInfo.rate |rateOrganiser}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_details col-12 d-flex flex-column justify-content-between">
+                    <div class="content_head row m-0">
+                        <div class="col-9 p-0 content_title">{{restaurant.title}}</div>
+                        <div class="col-6 p-0 font-12 opacity-50 content_type">Coffee, Tatlı</div>
+                    </div>
+                    <div class="content_body col-12 p-0">
+                        <div class="row m-0">
+                            <div class="col-6 p-0 offset-6 font-12 content_min_cost d-flex justify-content-end">
+                                <span class="img_wrapper mr-1"><img src="../../../../../assets/Images/Main/content/shopping_basket-24px.png" alt=""/></span>
+                                <span class="text_wrapper opacity-50">Min. Sipariş Tutarı : &#8378;{{restaurant.storeInfo.minOrderPrice}}</span>
+                            </div>
+                            
+                            <div class="col-5 p-0 font-12 ">{{restaurant.location.coordinates |distanceHandler : lat : lng}} yakınında</div>
+                            <div class="col-7 p-0 font-12 d-flex justify-content-end">
+                                <span class='mr-1 status_open' *ngIf="restaurant.storeInfo.status === 'open'">İşletme Açık</span>
+                                <span class='mr-1 status_close' *ngIf="restaurant.storeInfo.status === 'close'">İşletme Kapalı</span>
+                                <span class='workingHours' *ngIf="restaurant.storeInfo.workingHours.length === 0">Bilinmiyor... </span>
+                                <span class='workingHours' *ngIf="restaurant.storeInfo.workingHours.length !== 0">{{restaurant.storeInfo.workingHours[0].open}} / {{restaurant.storeInfo.workingHours[0].close}} </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

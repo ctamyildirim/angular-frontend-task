@@ -1,0 +1,23 @@
+.header_wrapper{
+    position: relative;
+    padding : 0 16px;
+
+    span{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+
+    img{
+        width: inherit;
+        height: inherit;
+        object-fit: contain;
+        }
+    }
+    .header_title{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50% , -50%);
+    }
+}

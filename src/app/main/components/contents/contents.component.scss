@@ -1,0 +1,95 @@
+.contents_wrapper {
+    .contents_head_title{
+        font-size: 14px;
+    }
+}
+
+.content_card{
+    height: 260px;
+    box-shadow: 0 10px 25px #0108241A;
+    border-radius: 9px;
+    margin: 15px auto;
+    overflow: hidden;
+    .image_inclusive{
+        border-radius: 9px;
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        img{
+            width: inherit;
+            height: inherit;
+        /*object-fit: cover    --> Burada fotoğrafların daha net çıkıp alana tam oturması için uygun kullanım bu kod bloğunun eklenmesidir ancak 
+            bu kod bloğunu eklediğimizde fotoğrafların üzerinde 10% gibi kampanya yazılarının görünmemesi sebebiyle tereddütte kalıp bu kod bloğunu eklemedim.*/  
+        }
+        .rate_zone{
+            position: absolute;
+            width: 56px;
+            height: 32px;
+            top: 8px;
+            left: 8px;
+            background-color: #B70014;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 6px;
+            color: #fff;
+            .star_wrapper > img{
+                width: 13px;
+                height: auto;
+            }
+            .rate_wrapper{
+                vertical-align: middle;
+            }
+        }
+    }
+    .content_details{
+        padding: 10px 10px 12px 10px;
+    
+        .content_head{
+            height: 53px;
+    
+            .content_title{
+                font-size: 18px;
+                color: #1A1824;
+                line-clamp: 2;
+                -o-line-clamp: 2;
+                -moz-line-clamp: 2;
+                -ms-line-clamp: 2;
+                -webkit-line-clamp: 2;
+                max-height: 54px;
+                overflow: hidden;
+            }
+            .content_type{
+                color: #1A1824;
+                margin-top: 5px;
+            }
+        }
+        .content_body{
+            .content_min_cost{
+                margin-top: 5px;
+    
+                span.img_wrapper{
+                    width: 12px;
+                    height: 12px;
+                }
+                span.text_wrapper{
+                    vertical-align: middle;
+                }
+            }
+            .status_open{
+                color: #34C47C;
+            }
+            .status_close{
+                color: #B70014;
+            }
+            span.workingHours{
+                color: #1A182480;
+            }
+        } 
+    }
+}
+
+
+

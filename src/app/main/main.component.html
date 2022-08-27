@@ -1,0 +1,6 @@
+<div class="main_inclusive">
+    <app-searchinput (searcher)="searcherMethod($event)"></app-searchinput>
+    <app-contents [restaurants]="restaurants" [lat]="lat" [lng]="lng"></app-contents>
+     <!--Eğer API sorgusu devam ediyorsa Yükleniyor yazısı ekleniyor-->
+    <div class="loading_div font-12 opacity-50 mb-2" *ngIf="isLoading == true">Yükleniyor...</div>
+</div>
